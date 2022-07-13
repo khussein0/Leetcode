@@ -10,12 +10,10 @@
  * @param {TreeNode} root
  * @return {number[][]}
  */
-var levelOrder = function(root) {
-    if(!root) return [];
-    
+var levelOrder = function(root) {    
     let queue = [root], res = [];
     
-    while(queue.length > 0){
+    while(queue[0]){
         let arr = [], len = queue.length;
         for(let i = 0; i < len; i++){
             let curr = queue.shift();
