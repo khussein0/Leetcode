@@ -26,11 +26,7 @@ MyQueue.prototype.pop = function() {
  * @return {number}
  */
 MyQueue.prototype.peek = function() {
-    while(this.stack1.length) this.stack2.push(this.stack1.pop());
-    let last = this.stack2.pop();
-    this.stack2.push(last);
-    while(this.stack2.length) this.stack1.push(this.stack2.pop());
-    return last;
+    return this.stack1[0];
 };
 
 /**
