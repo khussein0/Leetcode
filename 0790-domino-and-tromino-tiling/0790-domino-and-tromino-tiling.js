@@ -3,7 +3,7 @@
  * @return {number}
  */
 var numTilings = function(n) {
-    let mod = Math.pow(10,9) + 7, dp = new Array(5).fill(0);
+    let mod = Math.pow(10,9) + 7, dp = new Array(n).fill(0);
     
     dp[1] = 1;
     dp[2] = 2;
