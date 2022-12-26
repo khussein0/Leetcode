@@ -7,11 +7,8 @@ var canJump = function(nums) {
     
     while(idx < nums.length){
         max = Math.max(max, idx + nums[idx]);
-        
         if(max >= target) return true;
-        
         if(max <= idx && nums[idx] === 0) return false;
-        
         idx++;
     };
     
