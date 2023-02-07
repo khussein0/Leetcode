@@ -4,9 +4,6 @@
  */
 var minimumOneBitOperations = function(n) {
     let res = 0;
-    while(n > 0){
-        res ^= n;
-        n >>= 1;
-    };
+    for(; n > 0; n >>= 1) res ^= n;
     return res;
 };
