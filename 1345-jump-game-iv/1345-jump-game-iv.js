@@ -29,7 +29,6 @@ var minJumps = function(arr) {
                 }
             }
         }
-        //***IMPORTANT remove this key from map to prevent redundant searches, otherwise we will get Time Limit Exceeded error
         delete map[arr[index]];
         neighbour = index+1;
         if(neighbour>=0 && neighbour<=arr.length-1){
