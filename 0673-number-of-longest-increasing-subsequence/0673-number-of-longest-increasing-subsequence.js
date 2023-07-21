@@ -3,8 +3,7 @@
  * @return {number}
  */
 var findNumberOfLIS = function(nums) {
-    const dp = Array(nums.length).fill(1);
-    const paths = Array(nums.length).fill(1);
+    const dp = Array(nums.length).fill(1), paths = Array(nums.length).fill(1);
     
     for(let i = 0; i < nums.length; i++) {
         for(let j = i-1; j >= 0; j--) {
@@ -15,11 +14,13 @@ var findNumberOfLIS = function(nums) {
             };
         };
     };
+    
     const max = Math.max(...dp);
     let totalPaths = 0;
     
     for(let i = 0; i < dp.length; i++) {
         if(dp[i] === max) totalPaths += paths[i];
     };
+    
     return totalPaths;
 };
