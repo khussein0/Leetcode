@@ -13,9 +13,7 @@ var letterCombinations = function(digits) {
         if(idx === digits.length) res.push(str);
         else{
             let letters = obj[digits[idx]];
-            for(let i = 0; i < letters.length; i++){
-                combine(str + letters[i], idx + 1);
-            };
+            for(let i = 0; i < letters.length; i++) combine(str + letters[i], idx + 1);
         };
     };
     
