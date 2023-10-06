@@ -3,18 +3,12 @@
  * @return {number}
  */
 var integerBreak = function(n) {
-    let memo = new Map();
+    if(n === 2) return 1;
+    if(n === 3) return 2;
     
-    function dp(n){
-        if(n == 1 || n == 2) return 1;
-        if(memo.has(n)) return memo.get(n);
-        
-        let q = 0;
-        for(let i=1; i<=n/2; i++){
-            q = Math.max(q, i * Math.max((n-i),dp(n-i)));
-        };
-        memo.set(n, q);
-        return q;
-    };
-    return dp(n);
+    const count3 = Math.floor(n / 3), rem = n % 3;
+    
+    if(rem === 0) return 3 ** count3;
+    else if(rem === 1) return 3 ** (count3 - 1) * 4;
+    else return 3 ** count3 * 2;
 };
