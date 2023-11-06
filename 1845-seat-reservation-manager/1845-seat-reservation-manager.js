@@ -2,18 +2,18 @@
  * @param {number} n
  */
 var SeatManager = function(n) {
-    this.seats = new Array(n+1).fill(false);
+    this.last = 0;
+    this.seats = [];
 };
 
 /**
  * @return {number}
  */
 SeatManager.prototype.reserve = function() {
-    for(let i = 1; i < this.seats.length; i++){
-        if(this.seats[i] === false){
-            this.seats[i] = true;
-            return i;
-        };
+    if(this.seats.length === 0) return ++this.last;
+    else{
+        this.seats.sort((a,b) => a - b);
+        return this.seats.shift();
     };
 };
 
@@ -22,7 +22,8 @@ SeatManager.prototype.reserve = function() {
  * @return {void}
  */
 SeatManager.prototype.unreserve = function(seatNumber) {
-    this.seats[seatNumber] = false;
+    if(seatNumber === this.last) this.last--;
+    else this.seats.push(seatNumber);
 };
 
 /** 
